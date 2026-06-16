@@ -103,6 +103,33 @@
     0 0 0 2px var(--white);
 }
 
+.passwordWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.eyeButton {
+  position: absolute;
+  top: 50%;
+  right: 14px;
+
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  background: transparent;
+
+  cursor: pointer;
+}
+
+.eyeButton svg {
+  width: 18px;
+  height: 18px;
+}
+
 .registerwrapp {
   display: flex;
   flex-direction: row;

@@ -1,10 +1,14 @@
 export type User = {
-  id: string;
-  email: string;
+  _id: string;
   name: string;
+  email: string;
+  favorites: {
+    _id: string;
+    recipeId: string;
+  }[];
   avatar: string;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: string;
+  updatedAt: string;
 };
 
 export interface RegisterLoginData {
