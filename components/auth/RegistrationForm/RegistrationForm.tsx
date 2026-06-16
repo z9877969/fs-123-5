@@ -122,13 +122,17 @@ const RegistrationForm = () => {
                                     placeholder="*********"/>
 
                                 <button
-                                    type="button"
-                                    className={css.eyeButton}
-                                    onClick={() => setShowPassword(prev => !prev)}
-                                    aria-label={showPassword ? 'Show password ' : 'Hide password'}
-                                    aria-pressed={showPassword}
+                                   type="button"
+                                   className={css.eyeButton}
+                                   onClick={() => setShowPassword(prev => !prev)}
+                                   aria-label={showPassword ? 'Hide password' : 'Show password'}
+                                   aria-pressed={showPassword}
                                 >
-                                    {showPassword ? <EyeOnIcon/> : <EyeOffIcon/>}
+                                   {showPassword ? (
+                                       <img src={EyeOnIcon.src} alt="eye on" />
+                                   ) : (
+                                       <img src={EyeOffIcon.src} alt="eye off" />
+                                  )}
                                 </button>
                             </div>
 
@@ -151,10 +155,14 @@ const RegistrationForm = () => {
                                     type="button"
                                     className={css.eyeButton}
                                     onClick={() => setShowConfirmPassword(prev => !prev)}
-                                    aria-label={showConfirmPassword ? 'Hide password ' : 'Show password'}
+                                    aria-label={showConfirmPassword ? 'Hide password' : 'Show password'}
                                     aria-pressed={showConfirmPassword}
                                 >
-                                    {showConfirmPassword ? <EyeOnIcon/> : <EyeOffIcon/>}
+                                    {showConfirmPassword ? (
+                                        <img src={EyeOnIcon.src} alt="eye on" />
+                                    ) : (
+                                        <img src={EyeOffIcon.src} alt="eye off" />
+                                    )}
                                 </button>
                             </div>
                             <ErrorMessage component="span" name="confirmPassword" className={css.isError}/>
