@@ -2,12 +2,12 @@ import RecipeCard from "../RecipeCard/RecipeCard";
 import styles from "./RecipesList.module.css";
 
 type Recipe = {
-  id: string;
+  _id: string;
   title: string;
   description: string;
-  time: string;
-  calories?: number;
-  image: string;
+  time: number;
+  calories?: number | null;
+  thumb: string;
 };
 
 type RecipesListProps = {
@@ -20,17 +20,16 @@ export default function RecipesList({ recipes }: RecipesListProps) {
       <div className={styles.grid}>
         {recipes.map((recipe) => (
           <RecipeCard
-            key={recipe.id}
+            key={recipe._id}
             title={recipe.title}
             description={recipe.description}
-            time={recipe.time}
-            calories={recipe.calories}
-            image={recipe.image}
+            time={String(recipe.time)}
+            calories={recipe.calories ?? undefined}
+            image={recipe.thumb}
           />
         ))}
       </div>
 
-    
       <button className={styles.loadMore}>Load More</button>
     </div>
   );

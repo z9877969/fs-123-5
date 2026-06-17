@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const BACKEND_URL =
-  process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:3000/api";
+const BACKEND_URL = "https://final-project-fullstack-force-back-r48i.onrender.com/api";
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
@@ -11,7 +10,7 @@ export async function GET(request: NextRequest) {
   const backendUrl = new URL(`${BACKEND_URL}/recipes`);
 
   if (query) {
-    backendUrl.searchParams.set("query", query);
+    backendUrl.searchParams.set("search", query);
   }
 
   const response = await fetch(backendUrl.toString(), {

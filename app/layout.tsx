@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Toaster } from 'react-hot-toast';
 import { DM_Sans, Montserrat } from 'next/font/google';
 import './globals.css';
 import Layout from '@/components/layout/Layout/Layout';
@@ -33,6 +34,7 @@ export default function RootLayout({
       <body className={`${montserrat.variable} ${dmSans.variable}`}>
         <QueryProvider>
           <Layout>{children}</Layout>
+          <Toaster position="top-right" />
         </QueryProvider>
       </body>
     </html>
