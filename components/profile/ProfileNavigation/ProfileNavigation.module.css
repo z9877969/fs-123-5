@@ -1,0 +1,36 @@
+.nav {
+  display: flex;
+  gap: 38px;
+ 
+  margin-bottom: 16px;
+
+}
+
+.link {
+      
+  height: 19px;              
+font-size: 18px;
+  font-weight: 600;
+  color: #000;
+  /* text-decoration: none; */
+  cursor: pointer;
+ border-bottom: 1px solid transparent;  
+  transition: border-color 0.3s ease;
+
+}
+
+
+.active {
+  text-decoration: underline;      
+  text-underline-offset: 4px;       
+  text-decoration-color: #000;       
+  text-decoration-thickness: 1px;
+
+}
+
+@media (min-width: 768px) {
+  .link {
+    font-size: 12px;        
+  }
+
+}
