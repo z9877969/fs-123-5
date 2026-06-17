@@ -9,8 +9,7 @@ import css from './LoginForm.module.css';
 import { useRouter } from 'next/navigation';
 import { login } from '../../../lib/api/client';
 import { useAuthStore } from '../../../stores/authStore';
-import EyeOnIcon from '@/components/icon/open-eye-icon.svg';
-import EyeOffIcon from '@/components/icon/close-eye-icon.svg';
+import Image from 'next/image';
 import { RegisterLoginData } from '@/types/user';
 import { validationLoginSchema } from '../LoginForm/LoginFormValidation';
 import { AxiosError } from 'axios';
@@ -91,7 +90,11 @@ const Login = () => {
                   aria-label={showPassword ? 'Hide password' : 'Show password'}
                   aria-pressed={showPassword}
                 >
-                  {showPassword ? <EyeOnIcon /> : <EyeOffIcon />}
+                  {showPassword ? (
+                    <Image src="/icons/open-eye-icon.svg" alt="eye on" width={24} height={24} />
+                  ) : (
+                    <Image src="/icons/close-eye-icon.svg" alt="eye off" width={24} height={24} />
+                  )}
                 </button>
               </div>
               <ErrorMessage name="password" component="span" className={css.error} />
