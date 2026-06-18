@@ -9,14 +9,20 @@ import GeneralInfo from "@/components/recipes/recipeDetails/GeneralInfo/GeneralI
 import RecipeSection from "@/components/recipes/recipeDetails/RecipeSection/RecipeSection";
 import SaveButton from "@/components/recipes/recipeDetails/SaveButton/SaveButton";
 
-import RecipeDetailsSkeleton from "@/components/recipes/RecipeDetails/RecipeDetailsSkeleton";
+import RecipeDetailsSkeleton from "@/components/recipes/recipeDetails/RecipeDetailsSkeleton";
 import styles from "./RecipeDetails.module.css";
+
+type IngredientItem = {
+  _id: string;
+  name: string;
+  amount: string;
+};
 
 export default function RecipeDetailsPage() {
   const { id } = useParams();
-  const recipeId = Array.isArray(id) ? id[0] : id;
+ const recipeId = Array.isArray(id) ? id[0] : id;
 
-  const { data, isLoading, isError } = useRecipe(recipeId);
+const { data, isLoading, isError } = useRecipe(recipeId ?? "");
 
   if (isLoading) return <RecipeDetailsSkeleton />;
   if (isError) return <p className={styles.error}>Помилка завантаження рецепта</p>;
@@ -35,11 +41,11 @@ export default function RecipeDetailsPage() {
 
       <RecipeSection title="Ingredients">
         <ul>
-          {recipe.ingredients.map((item) => (
-            <li key={item._id}>
-              {item.name} — {item.amount}
-            </li>
-          ))}
+         {recipe.ingredients.map((item: IngredientItem) => (
+  <li key={item._id}>
+    {item.name} — {item.amount}
+  </li>
+))}
         </ul>
       </RecipeSection>
 
