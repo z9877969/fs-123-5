@@ -10,7 +10,7 @@ export async function POST() {
     const cookieStore = await cookies();
 
     const apiRes = await api.post(
-      '/auth/refresh',
+      '/api/auth/refresh',
       {},
       {
         headers: {
