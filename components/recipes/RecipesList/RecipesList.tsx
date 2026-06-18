@@ -24,14 +24,14 @@ export function RecipesList({ recipes }: RecipesListProps) {
       <div className={styles.grid}>
         {recipes.map((recipe) => (
           <RecipeCard
-  key={recipe._id}
-  id={recipe._id}
-  title={recipe.title || recipe.name || ""}
-  description={recipe.description}
-  time={String(recipe.time || recipe.cookingTime || "")}
-  calories={recipe.calories ?? undefined}
-  image={recipe.thumb || recipe.recipeImage || ""}
-/>
+            key={recipe._id}
+            id={recipe._id}
+            title={recipe.title || recipe.name || ""}
+            description={recipe.description}
+            time={String(recipe.time || recipe.cookingTime || "")}
+            calories={recipe.calories ?? undefined}
+            thumb={recipe.thumb || recipe.recipeImage || ""}  
+          />
         ))}
       </div>
 
