@@ -56,7 +56,7 @@ export async function proxy(request: NextRequest) {
     }
 
     if (isPrivateRoute) {
-      return NextResponse.redirect(new URL('/sign-in', request.url));
+      return NextResponse.redirect(new URL('/auth/login', request.url));
     }
   }
 
@@ -70,5 +70,5 @@ export async function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/profile/:path*', '/add-recipe/:path*', '/auth'],
+  matcher: ['/profile/:path*', '/add-recipe/:path*', '/auth/:path*'],
 };
