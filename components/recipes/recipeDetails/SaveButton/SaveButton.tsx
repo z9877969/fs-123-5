@@ -2,10 +2,14 @@
 
 import { useAuthStore } from "@/stores/authStore";
 import { useFavoritesStore } from "@/stores/favoritesStore";
-import ModalNotAutor from "@/components/auth/ModalNotAutor";
+import ModalNotAutor from "@/components/auth/ModalNotAutor/ModalNotAutor";
 import styles from "./SaveButton.module.css";
 
-export default function SaveButton({ recipeId }) {
+type SaveButtonProps = {
+  recipeId: string;
+};
+
+export default function SaveButton({ recipeId }: SaveButtonProps) {
   const user = useAuthStore((state) => state.user);
   const toggleFavorite = useFavoritesStore((state) => state.toggleFavorite);
   const isFavorite = useFavoritesStore((state) => state.isFavorite);

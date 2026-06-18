@@ -3,30 +3,34 @@ import styles from "./RecipesList.module.css";
 
 type Recipe = {
   _id: string;
-  title: string;
+  title?: string;
+  name?: string;
   description: string;
-  time: number;
+  time?: number;
+  cookingTime?: number;
   calories?: number | null;
-  thumb: string;
+  thumb?: string;
+  recipeImage?: string;
 };
 
 type RecipesListProps = {
   recipes: Recipe[];
+  type?: string;
 };
 
-export default function RecipesList({ recipes }: RecipesListProps) {
+export function RecipesList({ recipes }: RecipesListProps) {
   return (
     <div className={styles.wrapper}>
       <div className={styles.grid}>
         {recipes.map((recipe) => (
           <RecipeCard
-            key={recipe._id}
-            id={recipe._id}
-            title={recipe.title}
-            description={recipe.description}
-            time={String(recipe.time)}
-            calories={recipe.calories ?? undefined}
-            image={recipe.thumb}
+  key={recipe._id}
+  id={recipe._id}
+  title={recipe.title || recipe.name || ""}
+  description={recipe.description}
+  time={String(recipe.time || recipe.cookingTime || "")}
+  calories={recipe.calories ?? undefined}
+  image={recipe.thumb || recipe.recipeImage || ""}
 />
         ))}
       </div>
@@ -35,3 +39,5 @@ export default function RecipesList({ recipes }: RecipesListProps) {
     </div>
   );
 }
+
+export default RecipesList;
