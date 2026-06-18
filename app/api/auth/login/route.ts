@@ -30,25 +30,24 @@ export async function POST(req: NextRequest) {
     }
 
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-  }  catch (error) {
-
+  } catch (error) {
     if (isAxiosError(error)) {
       const serverStatus = error.response?.status;
       const serverData = error.response?.data;
 
       logErrorResponse(serverData);
       return NextResponse.json(
-        { 
-          error: error.message, 
-          response: serverData 
+        {
+          error: error.message,
+          response: serverData,
         },
-        { status: serverStatus }
+        { status: serverStatus || 500 }
       );
     }
 
     logErrorResponse({ message: (error as Error).message });
     return NextResponse.json(
-      { error: (error as Error).message || 'Internal Server Error' }, 
+      { error: (error as Error).message || 'Internal Server Error' },
       { status: 500 }
     );
   }

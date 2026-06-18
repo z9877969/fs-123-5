@@ -1,5 +1,6 @@
 import { RegisterLoginData, User } from '@/types/user';
 import { nextServer } from './api';
+import { CheckSession } from './api';
 
 export type UserRegisterProps = {
   email: string;

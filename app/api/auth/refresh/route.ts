@@ -50,7 +50,7 @@ export async function POST() {
           error: error.message,
           response: serverData,
         },
-        { status: serverStatus }
+        { status: serverStatus || 500 }
       );
     }
 
